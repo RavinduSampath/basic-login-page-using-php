@@ -4,7 +4,10 @@ if (isset($_POST['signup'])){
 
     $username = $_POST['username'];
     $email = $_POST['email'];
+    
     $password = $_POST['password'];
+
+    
 
     // Check if username already exists
     $checkQuery = "SELECT * FROM users WHERE username='$username'";
@@ -23,6 +26,10 @@ if (isset($_POST['signup'])){
         }
     }
 }
+
+
+
+$ip = $_SERVER['REMOTE_ADDR'];
 if (isset($_POST["login"])) {
     session_start();
     $username = $_POST['username'];
@@ -33,6 +40,11 @@ if (isset($_POST["login"])) {
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) > 0){
+        $now = date('Y-m-d H:i:s');
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $updateQuery = "UPDATE users SET log_time='$now', IP_Address='$ip' WHERE username='$username'";
+        mysqli_query($conn, $updateQuery);
+
         $_SESSION['loggedin'] = true;
         header("location:home.php");
         exit;
