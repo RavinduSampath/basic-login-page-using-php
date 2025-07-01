@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="bg-gray-100">
     <div class="container" id="signup">
         <h1 class="text-2xl font-bold mb-6 text-center">Sign Up</h1>
@@ -22,7 +21,6 @@
                         <input type="text" id="username" name="username" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-600">
                     </td>
                 </tr>
-                
                 <tr>
                     <td class="py-2 pr-3">
                         <label for="email" class="font-medium">Email:</label>
@@ -51,5 +49,4 @@
         </h3>
     </div>
 </body>
-
 </html>
